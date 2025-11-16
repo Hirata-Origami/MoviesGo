@@ -1,0 +1,3 @@
+This is a placeholder for missing images.
+Add a proper placeholder image (e.g., a gray box with "No Image" text) at:
+public/placeholder-image.jpg
