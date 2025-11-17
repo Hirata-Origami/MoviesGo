@@ -61,14 +61,6 @@ export default function TVWatchPage() {
     }
   };
 
-  const navigateEpisode = (direction: "prev" | "next") => {
-    if (direction === "next") {
-      router.push(`/tv/${tvId}/watch?season=${season}&episode=${episode + 1}`);
-    } else if (episode > 1) {
-      router.push(`/tv/${tvId}/watch?season=${season}&episode=${episode - 1}`);
-    }
-  };
-
   if (loading) {
     return (
       <AuthGuard>
@@ -93,31 +85,6 @@ export default function TVWatchPage() {
             <ArrowLeft className="h-5 w-5 mr-2" />
             Back
           </Button>
-
-          <div className="text-white text-center">
-            <p className="text-sm text-gray-400">Now Playing</p>
-            <p className="font-semibold">Season {season} • Episode {episode}</p>
-          </div>
-
-          <div className="flex gap-2">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => navigateEpisode("prev")}
-              disabled={episode === 1}
-              className="bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white disabled:opacity-50"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={() => navigateEpisode("next")}
-              className="bg-black/50 hover:bg-black/70 backdrop-blur-sm text-white"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
-          </div>
         </div>
 
         {/* Video Player - Fullscreen */}
